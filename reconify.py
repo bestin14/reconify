@@ -74,7 +74,8 @@ def gospider():
 
 
 def xlinks() :
-
+  
+  global url_files
   cprint('[*] Running the xnlinkfinder tool for finding links\n','blue''')
   cmd = ['sh', '-c', f'python3 xnLinkFinder/xnLinkFinder.py -i {dom_ch} -sp https://{dom_ch} -o hi;cat hi | grep {dom_ch} > xlinks']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
