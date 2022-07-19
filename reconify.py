@@ -142,7 +142,7 @@ def fromlinks():
   global js_files
 
   cprint('Collecting js files from final_urls','yellow')
-  cmd = ['sh', '-c', "cat final_urls | grep '\.js$' | httpx -status-code -mc 200,204,302,307,401,403,405,500 -content-type | grep 'application/javascript' |sed  's/\[[^]]*\]//g' > from_links" ]
+  cmd = ['sh', '-c', "cat final_urls | grep '\.js$' > from_links" ]
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   cmd = ['sh', '-c', f"cat final_urls from_links | sort | uniq -u >final_urls" ]
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
@@ -190,7 +190,7 @@ def jsfinder():
   global js_urls
 
   cprint('[*] Running the jsfinder tool\n','yellow')
-  cmd = ['sh', '-c', f'python3 JSFinder/JSFinder.py -f final_urls -ou jsfinder_urls ']
+  cmd = ['sh', '-c', f'python3 JSFinder/JSFinder.py -f from_links -ou jsfinder_urls ']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   cprint('[*] Tool ran succesfully\n','green')
   js_urls+='jsfinder_urls '
