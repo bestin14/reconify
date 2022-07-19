@@ -23,10 +23,16 @@ A simple automated recon tool for lazy bug hunters like me😁.These are the ava
 
 * httpx
 
-***These tools after been used all oftheir output after filtered is saved to final_urls file.***😇
+*** These tools after been used all oftheir output after filtered is saved to final_urls file. ***😇
 
 ## **Installation Instructions**
 
-`git clone `
-`chmod +x setup.sh`  **Remember to run this file as _root_❗❗❗**
-`./setup.sh`
+* `git clone `
+* `chmod +x setup.sh`  **Remember to run this file as _root_❗❗❗**
+* `./setup.sh`
+
+** That's it for now bois. I will adding new features soon😎✨ **
+
+* contact : bestinbabu6@gmail.com
+* Twitter id : https://twitter.com/bestin_14
+
