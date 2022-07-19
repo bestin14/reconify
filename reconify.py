@@ -29,7 +29,7 @@ def wayback():
 
   ''' Finding wayback urls '''
   
-  cprint('[*] Using the waybackurl tool \n','blue')
+  cprint('[*] Using the waybackurl tool \n','yellow')
   cmd = ['sh', '-c', f'waybackurls {dom_ch}> wayback_urls']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   url_files += 'wayback_urls '
@@ -44,7 +44,7 @@ def gau() :
 
   ''' Finding gau urls '''
 
-  cprint('[*] Using the gau tool \n','blue')
+  cprint('[*] Using the gau tool \n','yellow')
   cmd = ['sh', '-c', f'gau {dom_ch}> gau_urls']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   url_files += 'gau_urls '
@@ -59,7 +59,7 @@ def gospider():
   ''' Finding gospider urls '''
 
   try :
-    cprint('[*] Using the gospider tool \n','blue')
+    cprint('[*] Using the gospider tool \n','yellow')
     url_files += 'gospider_urls '
     cprint('[-->] Beware if the target is using a protection your ip may get blocked , so choose the thread wisely','red')
     thread = int(input('Enter the threads for crawling '))
@@ -76,7 +76,7 @@ def gospider():
 def xlinks() :
 
   global url_files
-  cprint('[*] Running the xnlinkfinder tool for finding links\n','blue''')
+  cprint('[*] Running the xnlinkfinder tool for finding links\n','yellow')
   cmd = ['sh', '-c', f'python3 xnLinkFinder/xnLinkFinder.py -i {dom_ch} -sp https://{dom_ch} -o hi;cat hi | grep {dom_ch} > xlinks']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   cprint('[*] Tool ran succesfully','green')
@@ -102,7 +102,7 @@ def hawcrawler() :
   global url_files
 
   try:
-    cprint('[*] Running the hawcraler tool\n','blue')
+    cprint('[*] Running the hawcraler tool\n','yellow')
     url_files += 'hakrawler_urls '
     cmd = ['sh', '-c', f'echo {dom_ch} | hakrawler -u > hakrawler_urls']   #in dev
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL,timeout=180)
@@ -141,13 +141,13 @@ def fromlinks():
 
   global js_files
 
-  cprint('Collecting js files from final_urls','blue')
+  cprint('Collecting js files from final_urls','yellow')
   cmd = ['sh', '-c', "cat final_urls | grep '\.js$' | httpx -status-code -mc 200,204,302,307,401,403,405,500 -content-type | grep 'application/javascript' |sed  's/\[[^]]*\]//g' > from_links" ]
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   cmd = ['sh', '-c', f"cat final_urls from_links | sort | uniq -u >final_urls" ]
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   js_files +='from_links '
-  cprint('Proccess completed succesfully','Green')
+  cprint('Proccess completed succesfully','green')
 
 
 
@@ -155,7 +155,7 @@ def subjs():
 
   global js_files
 
-  cprint('[*]Using the subjs tool','blue')
+  cprint('[*]Using the subjs tool','yellow')
   cmd = ['sh', '-c', "cat final_urls | subjs > sub_js" ]
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   js_files +='sub_js '
@@ -189,7 +189,7 @@ def jsfinder():
 
   global js_urls
 
-  cprint('[*] Running the jsfinder tool\n','blue''')
+  cprint('[*] Running the jsfinder tool\n','yellow')
   cmd = ['sh', '-c', f'xnLinkFinder.py -f final_urls -ou jsfinder_urls ']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   cprint('[*] Tool ran succesfully','green')
@@ -200,7 +200,7 @@ def xnlinfinder() :
 
   global js_urls
 
-  cprint('[*] Running the xnlinkfinder tool\n','blue''')
+  cprint('[*] Running the xnlinkfinder tool\n','yellow')
   cmd = ['sh', '-c', f'python3 xnLinkFinder/xnLinkFinder.py -i js_urls -sp https://{dom_ch} -o xlinkfinder_urls']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   cprint('[*] Tool ran succesfully','green')
@@ -225,7 +225,7 @@ def choose() :
     wayback()
     gau()
     
-    cprint('Using active methods to find urls \n','yellow')
+    cprint('Using active methods to find urls \n','magenta')
     gospider()
     xlinks()
     hawcrawler()
