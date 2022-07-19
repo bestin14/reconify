@@ -4,24 +4,24 @@ A simple automated recon tool for lazy bug hunters like me😁.These are the ava
 
 ##Tools for fetching urls activlly and passivlly
 
-[*] waybackurls
-[*] gau
-[*] gospider 
-[*] XlinkFinder
+* waybackurls
+* gau
+* gospider 
+* XlinkFinder
 
 ##Tools for finding javascript files
 
-[*] subjs
-[*] filtering from urls collected before
+* subjs
+* filtering from urls collected before
 
 ##Tool for finding urls from javascript files
 
-[*] JSFinder
-[*] XnlinkFinder
+* JSFinder
+* XnlinkFinder
 
 ##Tool for filtering out live urls
 
-[*] httpx
+* httpx
 
 ***These tools after been used all oftheir output after filtered is saved to final_urls file.***😇
 
