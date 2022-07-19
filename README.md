@@ -27,7 +27,7 @@ A simple automated recon tool for lazy bug hunters like me😁.These are the ava
 
 ## **Installation Instructions**
 
-* `git clone `
+* `git clone https://github.com/bestin14/reconify.git `
 * `chmod +x setup.sh`  **Remember to run this file as root ❗❗❗**
 * `./setup.sh`
 
