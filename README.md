@@ -23,7 +23,7 @@ A simple automated recon tool for lazy bug hunters like me😁.These are the ava
 
 * httpx
 
-*** These tools after been used all oftheir output after filtered is saved to final_urls file. ***😇
+***These tools after been used all oftheir output after filtered is saved to final_urls file.***😇
 
 ## **Installation Instructions**
 
