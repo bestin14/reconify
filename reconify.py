@@ -76,10 +76,10 @@ def gospider():
 def xlinks() :
 
   global url_files
-  cprint('[*] Running the xnlinkfinder tool for finding links\n','yellow')
+  cprint('[*] Running the xnlinkfinder tool \n','yellow')
   cmd = ['sh', '-c', f'python3 xnLinkFinder/xnLinkFinder.py -i {dom_ch} -sp https://{dom_ch} -o hi;cat hi | grep {dom_ch} > xlinks']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
-  cprint('[*] Tool ran succesfully','green')
+  cprint('[*] Tool ran succesfully\n','green')
   url_files += 'xlinks '
 
 
@@ -155,11 +155,11 @@ def subjs():
 
   global js_files
 
-  cprint('[*]Using the subjs tool','yellow')
+  cprint('[*]Using the subjs tool\n','yellow')
   cmd = ['sh', '-c', "cat final_urls | subjs > sub_js" ]
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   js_files +='sub_js '
-  cprint('[*] Tool ran succesfully','green')
+  cprint('[*] Tool ran succesfully\n','green')
 
 
 
@@ -190,9 +190,9 @@ def jsfinder():
   global js_urls
 
   cprint('[*] Running the jsfinder tool\n','yellow')
-  cmd = ['sh', '-c', f'xnLinkFinder.py -f final_urls -ou jsfinder_urls ']
+  cmd = ['sh', '-c', f'python3 xnLinkFinder/xnLinkFinder.py -f final_urls -ou jsfinder_urls ']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
-  cprint('[*] Tool ran succesfully','green')
+  cprint('[*] Tool ran succesfully\n','green')
   js_urls+='jsfinder_urls '
 
 
@@ -203,7 +203,7 @@ def xnlinfinder() :
   cprint('[*] Running the xnlinkfinder tool\n','yellow')
   cmd = ['sh', '-c', f'python3 xnLinkFinder/xnLinkFinder.py -i js_urls -sp https://{dom_ch} -o xlinkfinder_urls']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
-  cprint('[*] Tool ran succesfully','green')
+  cprint('[*] Tool ran succesfully\n','green')
   js_urls+='xlinkfinder_urls '
 
 
