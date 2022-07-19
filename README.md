@@ -31,7 +31,7 @@ A simple automated recon tool for lazy bug hunters like me😁.These are the ava
 * `chmod +x setup.sh`  **Remember to run this file as root ❗❗❗**
 * `./setup.sh`
 
-** That's it for now bois. I will adding new features soon😎✨ **
+**That's it for now bois. I will adding new features soon😎✨**
 
 * contact : bestinbabu6@gmail.com
 * Twitter id : https://twitter.com/bestin_14
