@@ -28,7 +28,7 @@ A simple automated recon tool for lazy bug hunters like me😁.These are the ava
 ## **Installation Instructions**
 
 * `git clone `
-* `chmod +x setup.sh`  **Remember to run this file as _root_❗❗❗**
+* `chmod +x setup.sh`  **Remember to run this file as _root _ ❗❗❗**
 * `./setup.sh`
 
 ** That's it for now bois. I will adding new features soon😎✨ **
