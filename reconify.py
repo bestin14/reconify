@@ -190,7 +190,7 @@ def jsfinder():
   global js_urls
 
   cprint('[*] Running the jsfinder tool\n','yellow')
-  cmd = ['sh', '-c', f'python3 xnLinkFinder/xnLinkFinder.py -f final_urls -ou jsfinder_urls ']
+  cmd = ['sh', '-c', f'python3 JSFinder/JSFinder.py -f final_urls -ou jsfinder_urls ']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   cprint('[*] Tool ran succesfully\n','green')
   js_urls+='jsfinder_urls '
