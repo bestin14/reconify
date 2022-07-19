@@ -2,24 +2,24 @@
 
 A simple automated recon tool for lazy bug hunters like me😁.These are the available features currently👀
 
-##Tools for fetching urls activlly and passivlly
+## Tools for fetching urls activlly and passivlly
 
 * waybackurls
 * gau
 * gospider 
 * XlinkFinder
 
-##Tools for finding javascript files
+## Tools for finding javascript files
 
 * subjs
 * filtering from urls collected before
 
-##Tool for finding urls from javascript files
+## Tool for finding urls from javascript files
 
 * JSFinder
 * XnlinkFinder
 
-##Tool for filtering out live urls
+## Tool for filtering out live urls
 
 * httpx
 
