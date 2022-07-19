@@ -7,6 +7,9 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+echo 'Installing go language'
+echo "Y" | apt install golang-go
+
 echo 'installing termcolor module of python'
 pip3 install termcolor
 
