@@ -254,7 +254,7 @@ def choose() :
 
     cprint('Urls from the domain has been collected and saved to final_urls file \n Removing unwanted files \n','cyan')
     cprint('Make sure to collect urls from burp spidering also!!','cyan')
-    cmd = ['sh', '-c', 'rm xlinkfinder_urls jsfinder_urls sub_js js_urls xlinks gospider_urls gau_urls wayback_urls hi from_links hakrawler_urls uniq_urls']
+    cmd = ['sh', '-c', 'rm xlinkfinder_urls jsfinder_urls sub_js js_urls xlinks gospider_urls gau_urls wayback_urls hi from_links hakrawler_urls uniq_urls final_urls']
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)    
 
 
