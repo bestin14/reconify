@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pd=pwd
+pd=$pwd
 
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
@@ -25,7 +25,7 @@ GO111MODULE=on go install github.com/jaeles-project/gospider@latest
 echo 'Installing gospider Tool'
 git clone https://github.com/xnl-h4ck3r/xnLinkFinder.git
 cd xnLinkFinder
-python setup.py install
+python3 setup.py install
 cd $pd
 
 echo 'Installing gospider Tool'
