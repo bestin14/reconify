@@ -22,13 +22,13 @@ go install github.com/lc/gau/v2/cmd/gau@latest
 echo 'Installing gospider Tool'
 GO111MODULE=on go install github.com/jaeles-project/gospider@latest
 
-echo 'Installing gospider Tool'
+echo 'Installing xnLinkFinder Tool'
 git clone https://github.com/xnl-h4ck3r/xnLinkFinder.git
 cd xnLinkFinder
 python3 setup.py install
 cd $pd
 
-echo 'Installing gospider Tool'
+echo 'Installing hakrawler Tool'
 go install github.com/hakluke/hakrawler@latest
 
 echo 'Installing subjs Tool'
