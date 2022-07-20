@@ -34,7 +34,7 @@ A simple automated recon tool for lazy bug hunters like me😁.These are the ava
 * `chmod +x setup.sh`  **Remember to run this file as root ❗❗❗**
 * `./setup.sh`
 
-## **Installation Instructions**
+## **Running the script**
 
 * Make sure to make a text file containing subdomains  (got lazy on subdomain enumeration part🤭)
 * `python3 reconify.py`
