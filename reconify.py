@@ -128,8 +128,14 @@ def js_links() :
 
 
 def final_urls():
-
+  
   cmd = ['sh', '-c', f"cat {js_urls} | httpx -status-code -mc 200,204,302,307,401,403,405,500 | sed  's/\[[^]]*\]//g' | sort | uniq -u >>final_urls" ]
+  subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
+  cmd = ['sh', '-c', f"cat final_urls | urldedupe/urldedupe -u final_urls > uniq_urls" ]
+  subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
+  cmd = ['sh', '-c', f"echo status 200 live urls are shown below > output_urls; cat uniq_urls | httpx -status-code -mc 200,204| sed 's/\[[^]]*\]//g' | sort | uniq -u >>output_urls; echo '' >> output_urls" ]
+  subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
+  cmd = ['sh', '-c', f"echo status 403 and other live urls are shown below >> output_urls; cat uniq_urls | httpx -status-code -mc 302,307,401,403,405,500| sed 's/\[[^]]*\]//g' | sort | uniq -u >>output_urls" ]
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
 
@@ -248,7 +254,7 @@ def choose() :
 
     cprint('Urls from the domain has been collected and saved to final_urls file \n Removing unwanted files \n','cyan')
     cprint('Make sure to collect urls from burp spidering also!!','cyan')
-    cmd = ['sh', '-c', 'rm xlinkfinder_urls jsfinder_urls sub_js js_urls xlinks gospider_urls gau_urls wayback_urls hi from_links hakrawler_urls']
+    cmd = ['sh', '-c', 'rm xlinkfinder_urls jsfinder_urls sub_js js_urls xlinks gospider_urls gau_urls wayback_urls hi from_links hakrawler_urls uniq_urls']
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)    
 
 
