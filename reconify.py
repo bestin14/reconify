@@ -61,7 +61,7 @@ def gospider():
   try :
     cprint('[*] Using the gospider tool \n','yellow')
     url_files += 'gospider_urls '
-    cprint('[-->] Beware if the target is using a protection your ip may get blocked , so choose the thread wisely','red')
+    cprint('[-->] Beware if the target is using a protection your ip may get blocked , so choose the thread wisely\n','red')
     thread = int(input('Enter the threads for crawling '))
     cmd = ['sh', '-c', f"gospider -s https://{dom_ch} -c {thread} -m 10 | grep -Eo '(http|https)://{dom_ch}[a-zA-Z0-9./?_%:-]*' > gospider_urls"]
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
@@ -133,9 +133,9 @@ def final_urls():
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   cmd = ['sh', '-c', f"cat final_urls | urldedupe/urldedupe -u final_urls > uniq_urls" ]
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
-  cmd = ['sh', '-c', f"echo status 200 live urls are shown below > output_urls; cat uniq_urls | httpx -status-code -mc 200,204| sed 's/\[[^]]*\]//g' | sort | uniq -u >>output_urls; echo '' >> output_urls" ]
+  cmd = ['sh', '-c', f"echo status 200 live urls are shown below > output_urls; echo '' >> output_urls; cat uniq_urls | httpx -status-code -mc 200,204| sed 's/\[[^]]*\]//g' | sort | uniq -u >>output_urls; echo '' >> output_urls" ]
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
-  cmd = ['sh', '-c', f"echo status 403 and other live urls are shown below >> output_urls; cat uniq_urls | httpx -status-code -mc 302,307,401,403,405,500| sed 's/\[[^]]*\]//g' | sort | uniq -u >>output_urls" ]
+  cmd = ['sh', '-c', f"echo status 403 and other live urls are shown below >> output_urls; echo '' >> output_urls; cat uniq_urls | httpx -status-code -mc 302,307,401,403,405,500| sed 's/\[[^]]*\]//g' | sort | uniq -u >>output_urls" ]
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
 
@@ -252,7 +252,7 @@ def choose() :
     xnlinfinder()
     final_urls()
 
-    cprint('Urls from the domain has been collected and saved to final_urls file \n Removing unwanted files \n','cyan')
+    cprint('Urls from the domain has been collected and saved to output_urls file \n Removing unwanted files \n','cyan')
     cprint('Make sure to collect urls from burp spidering also!!','cyan')
     cmd = ['sh', '-c', 'rm xlinkfinder_urls jsfinder_urls sub_js js_urls xlinks gospider_urls gau_urls wayback_urls hi from_links hakrawler_urls uniq_urls final_urls']
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)    
