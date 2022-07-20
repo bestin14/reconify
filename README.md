@@ -2,28 +2,31 @@
 
 A simple automated recon tool for lazy bug hunters like me😁.These are the available features currently👀
 
-## Tools used for fetching urls actively and passively
+## Tools that have been used in the script
+
+###### Tools used for fetching urls actively and passively
 
 * waybackurls
 * gau
 * gospider 
 * XlinkFinder
 
-## Tools used for finding javascript files
+###### Tools used for finding javascript files
 
 * subjs
 * filtering from urls collected before
 
-## Tools used for finding urls from javascript files
+###### Tools used for finding urls from javascript files
 
 * JSFinder
 * XnlinkFinder
 
-## Tool used for filtering out live urls
+###### Tool used for filtering out live and unique urls
 
 * httpx
+* urldedupe
 
-**These tools after been used all of their output after filtered is saved to final_urls file.😇**
+**These tools after been used all of their output is saved to output_urls file.😇**
 
 ## **Installation Instructions**
 
