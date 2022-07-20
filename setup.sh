@@ -37,6 +37,13 @@ GO111MODULE=on go get -u -v github.com/lc/subjs@latest
 echo 'Installing JSFinder Tool'
 git clone https://github.com/Threezh1/JSFinder.git
 
+echo 'Installing urldedupe Tool'
+git clone https://github.com/ameenmaali/urldedupe.git
+cd urldedupe
+cmake CMakeLists.txt
+make
+cd $pd
+
 echo 'Installing Httpx Tool'
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 
