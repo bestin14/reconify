@@ -42,7 +42,7 @@ git clone https://github.com/ameenmaali/urldedupe.git
 cd urldedupe
 cmake CMakeLists.txt
 make
-cd $pd
+
 
 echo 'Installing Httpx Tool'
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
