@@ -37,7 +37,7 @@ A simple automated recon tool for lazy bug hunters like me😁.These are the ava
 ## **Running the script**
 
 * Make sure to make a text file containing subdomains  (got lazy on subdomain enumeration part🤭)
-example: sub file `www.target.com`
+example: in a file called sub `www.target.com` as first subdomain
 * `python3 reconify.py`
 
 **That's it for now bois. I will adding new features soon😎✨**
