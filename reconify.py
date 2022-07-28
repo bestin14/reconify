@@ -359,6 +359,8 @@ def main():
 
   ''' chooose for subdoamin list or enumeration '''
 
+  global token
+
   token = input('Please enter your telegram bot token for notifying you on what is happening\n==>')
 
   print("Enter your choice\n")
