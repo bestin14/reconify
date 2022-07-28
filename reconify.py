@@ -1,7 +1,6 @@
-from lib2to3.pgen2 import token
 import subprocess
-from tokenize import Token
-from termcolor import colored, cprint
+from termcolor import cprint
+import requests
 
 
 print('\n\n\n')
@@ -90,24 +89,30 @@ def gospider():
 
   ''' Finding gospider urls '''
     
-  try :
-    cprint('[*] Using the gospider tool \n','yellow')
-    url_files += 'gospider_urls '
-    cprint('[-->] Beware if the target is using a protection your ip may get blocked , so choose the thread wisely\n','red')
-    thread = int(input('Enter the threads for crawling '))
-    cmd = ['sh', '-c', f"gospider -s https://{dom_ch} -c {thread} -m 10 | grep -Eo '(http|https)://{dom_ch}[a-zA-Z0-9./?_%:-]*' > gospider_urls"]
-    subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
+  
+  cprint('[*] Using the gospider tool \n','yellow')
+  url_files += 'gospider_urls '
+  cprint('[-->] Beware if the target is using a protection your ip may get blocked , so choose the thread wisely\n','red')
+  thread = int(input('Enter the threads for crawling '))
+  cmd = ['sh', '-c', f"gospider -s https://{dom_ch} -c {thread} -m 10 | grep -Eo '(http|https)://{dom_ch}[a-zA-Z0-9./?_%:-]*' > gospider_urls"]
+  subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
-    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Gospider tool ran succesfully"']
-    subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
+  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Gospider tool ran succesfully"']
+  subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
-    cprint('[*] Tool ran succesfully\n','green')
+  cprint('[*] Tool ran succesfully\n','green')
+
+  req = requests.head(f"https://{dom_ch}")
+  status = req.status_code
+
     
-  except:
-    cprint('[*] Tool has been stuck, urls upto current this has been captured \n','red') 
+  if status != 200:
 
-    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Gospider tool got blocked, firewall is placed. Please restart the router to get access to target again "']
+    cprint('[*] Tool has been caught, urls upto current this has been captured . Please restart the router\n','red') 
+
+    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Gospider tool got blocked, firewall is placed. Please restart the router to get access to target again and resume"']
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
+    exit()
 
 
 
@@ -143,10 +148,11 @@ def hawcrawler() :
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
   except:
-    cprint('[*] Tool has been stuck, urls upto current this has been captured\n ','red') 
+    cprint('[*] Tool has been caught, urls upto current this has been captured\n ','red') 
 
-    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Hakrawler tool got blocked, firewall is placed. Please restart the router to get access to target again "']
+    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Hakrawler tool got blocked, firewall is placed. Please restart the router to get access to target again and resume"']
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL) 
+    exit()
     
 
 #-----------------------------------arranging the found links ---------------------------------------------
