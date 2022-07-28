@@ -192,7 +192,7 @@ def final_urls():
 
   cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="THE SCRIPT IS COMPLETED"']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
-  rm_files()
+  #rm_files()
 
 
 #-----------------------------------finding javascript files ---------------------------------------------
