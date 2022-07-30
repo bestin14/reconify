@@ -94,7 +94,7 @@ def gospider():
   url_files += 'gospider_urls '
   cprint('[-->] Beware if the target is using a protection your ip may get blocked , so choose the thread wisely\n','red')
   thread = int(input('Enter the threads for crawling '))
-  cmd = ['sh', '-c', f"gospider -s https://{dom_ch} -c {thread} -m 10 | grep -Eo '(http|https)://{dom_ch}[a-zA-Z0-9./?_%:-]*' > gospider_urls"]
+  cmd = ['sh', '-c', f"gospider -s https://{dom_ch} -c {thread} -m 10 | grep -Eo '(http|https)://{dom_ch}[a-zA-Z0-9./?_%:-=&+-~:#@!$,;()]*' > gospider_urls"]
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
   cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Gospider tool ran succesfully"']
@@ -121,7 +121,7 @@ def xlinks() :
 
   global url_files
   cprint('[*] Running the xnlinkfinder tool \n','yellow')
-  cmd = ['sh', '-c', f'python3 xnLinkFinder/xnLinkFinder.py -i {dom_ch} -sp https://{dom_ch} -o hi;cat hi | grep {dom_ch} > xlinks']
+  cmd = ['sh', '-c', f"python3 xnLinkFinder/xnLinkFinder.py -i {dom_ch} -sp https://{dom_ch} -o hi;cat hi | grep  -Eo '(http|https)://{dom_ch}[a-zA-Z0-9./?_%:-=&+-~:#@!$,;()]*' > xlinks"]
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   cprint('[*] Tool ran succesfully\n','green')
   url_files += 'xlinks '
@@ -140,7 +140,7 @@ def hawcrawler() :
   try:
     cprint('[*] Running the hawcraler tool\n','yellow')
     url_files += 'hakrawler_urls '
-    cmd = ['sh', '-c', f'echo https://{dom_ch} | hakrawler -u > hakrawler_urls']   #in dev
+    cmd = ['sh', '-c', f"echo https://{dom_ch} | hakrawler -u  | grep -Eo '(http|https)://{dom_ch}[a-zA-Z0-9./?_%:-=&+-~:#@!$,;()]*'> hakrawler_urls"]   #in dev
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL,timeout=180)
     cprint('[*] Tool ran succesfully\n','green')
 
@@ -232,7 +232,7 @@ def subjs():
   save_prog.write('Subjs')
 
   cprint('[*]Using the subjs tool\n','yellow')
-  cmd = ['sh', '-c', "cat final_urls | subjs > sub_js" ]
+  cmd = ['sh', '-c', "cat final_urls | subjs | grep  -Eo '(http|https)://{dom_ch}[a-zA-Z0-9./?_%:-=&+-~:#@!$,;()]*' > sub_js" ]
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   js_files +='sub_js '
   cprint('[*] Tool ran succesfully\n','green')
