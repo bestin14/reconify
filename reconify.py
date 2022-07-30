@@ -246,7 +246,6 @@ def subjs():
 #-----------------------------------url finding from javascript files---------------------------------------------
 
 
-
 # def linkfinder() :
 
 #   cprint('[*] Running the linkfinder tool\n','green''')
