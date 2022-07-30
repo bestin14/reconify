@@ -56,7 +56,7 @@ def wayback():
   cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Wayback url tool ran sucessfully"']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
-  save_prog.write('Wayback')
+  save_prog.write('Wayback\n')
 
 
 
@@ -76,7 +76,7 @@ def gau() :
   cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Gau tool ran succesfully"']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
-  save_prog.write('Gau')
+  save_prog.write('Gau\n')
 
 #---------- active url finding--------
 
@@ -85,7 +85,7 @@ def gospider():
   cprint('Using active methods to find urls \n','magenta')
 
   global url_files
-  save_prog.write('Gospider')
+  save_prog.write('Gospider\n')
 
   ''' Finding gospider urls '''
     
@@ -129,13 +129,13 @@ def xlinks() :
   cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Xlink tool ran sucessfully"']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
-  save_prog.write('Xlinks')
+  save_prog.write('Xlinks\n')
 
 
 def hawcrawler() :
 
   global url_files
-  save_prog.write('Hawcrawler')
+  save_prog.write('Hawcrawler\n')
 
   try:
     cprint('[*] Running the hawcraler tool\n','yellow')
@@ -204,10 +204,11 @@ def fromlinks():
   cprint('Running tools for finding js files\n ','magenta')
 
   global js_files
-  save_prog.write('Fromlinks')
 
   cprint('Collecting js files from final_urls\n','yellow')
   try:
+
+    save_prog.write('Fromlinks\n')
     cmd = ['sh', '-c', "cat final_urls | grep '\.js$' > from_links" ]
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
     cmd = ['sh', '-c', f"cat final_urls from_links | sort | uniq -u >final_urls" ]
@@ -229,7 +230,6 @@ def fromlinks():
 def subjs():
 
   global js_files
-  save_prog.write('Subjs')
 
   cprint('[*]Using the subjs tool\n','yellow')
   cmd = ['sh', '-c', "cat final_urls | subjs > sub_js" ]
@@ -239,6 +239,8 @@ def subjs():
 
   cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="SubJs tool ran succesfully"']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
+
+  save_prog.write('Subjs\n')
 
 
 
@@ -259,8 +261,7 @@ def jsfinder():
   cprint('Running tools for finding urls from js files\n','magenta')
 
   global js_urls
-  save_prog.write('Jsfinder')
-
+  
   cprint('[*] Running the jsfinder tool\n','yellow')
   cmd = ['sh', '-c', f'python3 JSFinder/JSFinder.py -f final_urls -ou jsfinder_urls ']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
@@ -269,12 +270,12 @@ def jsfinder():
 
   cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="JSFinder tool ran succesfully"']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
+  save_prog.write('Jsfinder\n')
 
 
 def xnlinfinder() :
 
   global js_urls
-  save_prog.write('Xnlinkfinder')
 
   cprint('[*] Running the xnlinkfinder tool\n','yellow')
   cmd = ['sh', '-c', f'python3 xnLinkFinder/xnLinkFinder.py -i js_urls -sp https://{dom_ch} -o xlinkfinder_urls']
@@ -285,6 +286,7 @@ def xnlinfinder() :
   cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Xnlinkfinder tool ran succesfully"']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
+  save_prog.write('Xnlinkfinder\n')
 
 #-------------------------------------------------main part of the script----------------------------------------------------------------
 
