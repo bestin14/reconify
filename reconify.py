@@ -232,7 +232,7 @@ def subjs():
   save_prog.write('Subjs')
 
   cprint('[*]Using the subjs tool\n','yellow')
-  cmd = ['sh', '-c', "cat final_urls | subjs | grep  -Eo '(http|https)://{dom_ch}[a-zA-Z0-9./?_%:-=&+-~:#@!$,;()]*' > sub_js" ]
+  cmd = ['sh', '-c', "cat final_urls | subjs > sub_js" ]
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   js_files +='sub_js '
   cprint('[*] Tool ran succesfully\n','green')
