@@ -355,7 +355,7 @@ def rm_files():
     ## Removing unwanted files 
   try:
 
-    cmd = ['sh', '-c', 'rm xlinkfinder_urls jsfinder_urls sub_js js_urls xlinks gospider_urls gau_urls wayback_urls hi from_links hakrawler_urls uniq_urls final_urls resume.txt']
+    cmd = ['sh', '-c', 'rm xlinkfinder_urls jsfinder_urls sub_js js_urls xlinks gospider_urls gau_urls wayback_urls hi from_links hakrawler_urls uniq_urls final_urls resume.txt parameters.txt']
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
   except:
@@ -388,7 +388,7 @@ if __name__ == '__main__' :
   url_finding_cmds = {'Wayback':wayback, 'Gau':gau, 'Gospider':gospider , 'Xlinks':xlinks, 'Hawcrawler':hawcrawler, 'Url_links':url_links, 
   'Fromlinks':fromlinks, 'Subjs':subjs, 'Js_links':js_links, 'Jsfinder':jsfinder, 'Xnlinfinder':xnlinfinder,'Final_urls':final_urls,'Rm_files':rm_files }
 
-  save_prog = open('resume.txt','w+')
+  save_prog = open('resume.txt','a+')
 
   main()
 
