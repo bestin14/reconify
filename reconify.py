@@ -17,7 +17,7 @@ print('''██████╗ ███████╗ ██████╗ �
 
 def resume():
 
-  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Resuming where the script has been stopped before"']
+  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id={chat_id} -d text="Resuming where the script has been stopped before"']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
   completed_cmds =  [line.rstrip() for line in open('resume.txt')]
@@ -53,7 +53,7 @@ def wayback():
   url_files += 'wayback_urls '
   cprint('[*] Tool ran succesfully\n','green')
 
-  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Wayback url tool ran sucessfully"']
+  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id={chat_id} -d text="Wayback url tool ran sucessfully"']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
   save_prog.write('Wayback\n')
@@ -73,7 +73,7 @@ def gau() :
   url_files += 'gau_urls '
   cprint('[*] Tool ran succesfully\n','green')
 
-  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Gau tool ran succesfully"']
+  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id={chat_id} -d text="Gau tool ran succesfully"']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
   save_prog.write('Gau\n')
@@ -97,7 +97,7 @@ def gospider():
   cmd = ['sh', '-c', f"gospider -s https://{dom_ch} -c {thread} -m 10 | grep -Eo '(http|https)://{dom_ch}[a-zA-Z0-9./?_%:-=&+-~:#@!$,;()]*' > gospider_urls"]
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
-  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Gospider tool ran succesfully"']
+  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id={chat_id} -d text="Gospider tool ran succesfully"']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
   cprint('[*] Tool ran succesfully\n','green')
@@ -110,7 +110,7 @@ def gospider():
 
     cprint('[*] Tool has been caught, urls upto current this has been captured . Please restart the router\n','red') 
 
-    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Gospider tool got blocked, firewall is placed. Please restart the router to get access to target again and resume"']
+    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id={chat_id} -d text="Gospider tool got blocked, firewall is placed. Please restart the router to get access to target again and resume"']
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
     exit()
 
@@ -126,7 +126,7 @@ def xlinks() :
   cprint('[*] Tool ran succesfully\n','green')
   url_files += 'xlinks '
 
-  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Xlink tool ran sucessfully"']
+  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id={chat_id} -d text="Xlink tool ran sucessfully"']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
   save_prog.write('Xlinks\n')
@@ -144,13 +144,13 @@ def hawcrawler() :
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL,timeout=180)
     cprint('[*] Tool ran succesfully\n','green')
 
-    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Hakrawler tool ran succesfully"']
+    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id={chat_id} -d text="Hakrawler tool ran succesfully"']
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
   except:
     cprint('[*] Tool has been caught, urls upto current this has been captured\n ','red') 
 
-    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Hakrawler tool got blocked, firewall is placed. Please restart the router to get access to target again and resume"']
+    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id={chat_id} -d text="Hakrawler tool got blocked, firewall is placed. Please restart the router to get access to target again and resume"']
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL) 
     exit()
     
@@ -190,7 +190,7 @@ def final_urls():
   cprint('Urls from the domain has been collected and saved to output_urls file \n Removing unwanted files \n','cyan')
   cprint('Make sure to collect urls from burp spidering also!!','cyan')
 
-  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="THE SCRIPT IS COMPLETED"']
+  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id={chat_id} -d text="THE SCRIPT IS COMPLETED"']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   #rm_files()
 
@@ -216,13 +216,13 @@ def fromlinks():
     js_files +='from_links '
     cprint('Proccess completed succesfully','green')
     
-    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Js links collected from collected urls"']
+    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id={chat_id} -d text="Js links collected from collected urls"']
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
   except:
     cprint('No js urls were found in the links bro\n','blue')  
 
-    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="No js links found from collected urls"']
+    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id={chat_id} -d text="No js links found from collected urls"']
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
 
@@ -237,7 +237,7 @@ def subjs():
   js_files +='sub_js '
   cprint('[*] Tool ran succesfully\n','green')
 
-  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="SubJs tool ran succesfully"']
+  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id={chat_id} -d text="SubJs tool ran succesfully"']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
   save_prog.write('Subjs\n')
@@ -268,7 +268,7 @@ def jsfinder():
   cprint('[*] Tool ran succesfully\n','green')
   js_urls+='jsfinder_urls '
 
-  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="JSFinder tool ran succesfully"']
+  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id={chat_id} -d text="JSFinder tool ran succesfully"']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
   save_prog.write('Jsfinder\n')
 
@@ -283,7 +283,7 @@ def xnlinfinder() :
   cprint('[*] Tool ran succesfully\n','green')
   js_urls+='xlinkfinder_urls '
 
-  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="Xnlinkfinder tool ran succesfully"']
+  cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id={chat_id} -d text="Xnlinkfinder tool ran succesfully"']
   subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
   save_prog.write('Xnlinkfinder\n')
@@ -305,7 +305,7 @@ def choose() :
 
   if choice == 1:
 
-    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id=948413312 -d text="The script has started running"']
+    cmd = ['sh', '-c', f'curl -s -X POST https://api.telegram.org/bot{token}/sendMessage -d chat_id={chat_id} -d text="The script has started running"']
     subprocess.run(cmd,check=True,stderr=subprocess.DEVNULL,stdout=subprocess.DEVNULL)
 
     for cmd in url_finding_cmds:
@@ -366,9 +366,12 @@ def main():
 
   ''' chooose for subdoamin list or enumeration '''
 
-  global token
+  global token,chat_id
 
   token = input('Please enter your telegram bot token for notifying you on what is happening\n==>')
+  chat_id = input('Please enter your telegram chat id \n==>')
+
+
 
   print("Enter your choice\n")
   print('''[1] Subdomain Enumeration
